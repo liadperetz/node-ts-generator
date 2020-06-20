@@ -1,0 +1,46 @@
+{
+  "name": "ts-generator",
+  "version": "1.0.0",
+  "description": "Typescript project generator",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "ts-node index.ts",
+    "start": "nodemon ./dist/index.js",
+    "install:prod": "npm install --production",
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern ./src/**/*",
+    "test": "npm run build && mocha --recursive  ./dist/**/*.spec.js",
+    "test:unit": "npm run build && mocha --recursive ./dist/**/*.manager.spec.js ./dist/**/*.repository.spec.js",
+    "test:integration": "npm run build && mocha --recursive ./dist/**/*.router.spec.js",
+    "coverage": "nyc --reporter=html npm run test",
+    "coverage:test": "nyc check-coverage --lines 95 --functions 95 --branches 95",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liadperetz/node-ts-generator.git"
+  },
+  "author": "Liad Peretz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liadperetz/node-ts-generator/issues"
+  },
+  "homepage": "https://github.com/liadperetz/node-ts-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
